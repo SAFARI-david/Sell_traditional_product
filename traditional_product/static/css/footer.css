@@ -1,0 +1,53 @@
+footer {
+	background-color: #f8f9fa;
+	padding: 40px 0;
+	text-align: center;
+  }
+
+  .footer-lef h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+  }
+
+  .footer-lef span {
+	font-size: 18px;
+	color: #007bff; /* Blue color */
+  }
+
+  .footer-company-name {
+	font-size: 14px;
+	margin-bottom: 10px;
+  }
+
+  .footer-icons a {
+	margin-right: 10px;
+	color: #333; /* Default icon color */
+	font-size: 18px;
+  }
+
+  .footer-icons a:hover {
+	color: #007bff; /* Hovered icon color (blue) */
+  }
+
+  .footer-righ p {
+	font-size: 18px;
+	margin-bottom: 20px;
+  }
+
+  .footer-righ input[type="text"],
+  .footer-righ textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+  }
+
+  .footer-righ button[type="submit"] {
+	padding: 10px 20px;
+	background-color: #007bff;
+	border: none;
+	color: #fff;
+  }
+
+  .footer-righ button[type="submit"]:hover {
+	background-color: #0056b3; /* Hovered button color (a darker shade of blue) */
+  }

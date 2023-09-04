@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+     <link rel="stylesheet" href="{% static 'css/createevent.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Add your custom CSS if needed -->
+  <link rel="stylesheet" href="{% static 'css/singleconf.cs' %}">
+  <style>
+    .custom-division {
+      width: 80%;
+      height: 80%;
+      background-color: #f0f0f0; /* Change to your desired background color */
+    }
+    .row.no-gutters {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .col.no-gutters {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .custom-division {
+      border: none;
+    }
+    .header{
+    display: flex;
+    justify-content: space-between;
+    display:flex;
+    padding: 2rem 7%;
+    width: auto;
+    height: 8vh;
+    padding-top: 5px;
+    color: black;
+    padding-left: 50px;
+    background-color: rgba(28, 28, 34, 0.5);
+    
+ }
+ .header a{
+    color: black;
+ }
+  </style>
+</head>
+<body>
+    <div class="header">
+        <a class="navbar-brand" href="#"><strong>IT Level III ITE3162 Assigment</strong> </a>
+        <h1><a href="{% url 'index'%}"> BACK</a></div></h1>
+       </div>
+       <hr>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="column">
+                <h><u>About conference</u></h>
+            </div>
+
+            <br><br>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            
+            <div class="column">
+                <strong>Conference Name</strong>
+                    <small>{{conferences.confname}}</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="column">
+                <strong>Category</strong>
+                    <small>{{conferences.category}}</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="column">
+                <strong>Topic</strong>
+                    <small>{{conferences.topic}}</small>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column">
+                <h><u>About creator</u></h>
+            </div>
+            <br><br>
+
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            
+            <div class="column">
+                <strong>User Name</strong>
+                    <small>{{conferences.username}}</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="column">
+                <strong>email</strong>
+                    <small>{{conferences.email}}</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="column">
+                <strong>jobRole</strong>
+                    <small>{{conferences.jobRole}}</small>
+            </div>
+          </div>
+         </div>
+         <hr>
+         <div class="row">
+            <div class="column">
+                <h><u>Location</u></h>
+            </div>
+        <br><br>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">
+            
+            <div class="column">
+                <strong>Venue</strong>
+                    <small>{{conferences.Venue}}</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="column">
+                <strong>ZipCode</strong>
+                    <small>{{conferences.ZipCode}}</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="column">
+                <div class="row">
+                    <div class="column">
+                        <h><u>Time</u></h>
+                    </div>
+                </div>    
+                    <div class="row">
+                        <div class="col-md-6">
+                          
+                          <div class="column">
+                            <div class="row">
+                                <div class="col-md-15 ml-0">
+                                  <div class="column">
+                                      <strong>Start Time</strong>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-15">
+                                    <div class="column">
+                                        <small>{{conferences.start_date}}</small>
+                                    </div>
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="column">
+                            <div class="row">
+                                <div class="col-md-15">
+                                  <div class="column">
+                                      <strong> End Time</strong>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-18 ">
+                                    <div class="column">
+                                        <small>{{conferences.end_date}}</small>
+                                    </div>
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+        
+                </div>
+                
+            </div>
+          </div>
+        </div>
+    </div>
+     <hr>
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <p>&copy; 2023 <i>IT Student</i>  . All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+     
+</body>
+</html>

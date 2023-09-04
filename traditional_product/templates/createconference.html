@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Create Conference</title>
+    <!-- <link rel="stylesheet" href="./static/css/createevent.css"> -->
+    <link rel="stylesheet" href="{% static 'css/createevent.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/footer.css' %}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+
+#background-section {
+           background-image: url("static/images/conferencebackgraound.jpg");
+            height: 79vh;
+            width: 100%;
+            background-size: 55%;
+            background-repeat: no-repeat;
+         
+}
+
+    </style>
+
+</head>
+<body>
+   <div class="head">
+    <a class="navbar-brand" href="#"><strong>IT Level III ITE3162 Assigment</strong> </a>
+    <h1>Create Conference</h1>
+    <h1><a href="{% url 'index'%}"> BACK</a></div></h1>
+   </div>
+   <hr>
+    <section id="background-section">
+        <div class="right-division">
+            <form method="POST" action="{% url 'registerconference' %}">
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="column">
+                            <h2>Conference Name</h2>
+                            <p class="form-field">
+                                <input type="text" name="confname" required>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <h2>Category</h2>
+                            <p class="form-field">
+                                <select name="category" required>
+                                    <option value={{form.category}}></option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <h2>Owner Name</h2>
+                            <p class="form-field">
+                                <input type="text" name="username" required>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <h2>Job Role</h2>
+                            <p class="form-field">
+                                <select name="jobRole" required>
+                                    <option value={{form.jobRole}}></option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <h2>Venue</h2>
+                            <p class="form-field">
+                                <input type="text" name="Venue" required>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <h2>ZipCode</h2>
+                            <p class="form-field">
+                                <input type="number" name="ZipCode" required>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">  
+                        <div class="column">
+                            <h2>Starting Time</h2>
+                            <p class="form-field">
+                                <input type="datetime-local" name="start_date" required>
+                            </p>
+                        </div>
+                        <div class="column">
+                            <h2>Ending Time</h2>
+                            <p class="form-field">
+                                <input type="datetime-local" name="end_date" required>
+                               
+                            </p>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="column">
+                            <h2>Owner Email</h2>
+                            <p class="form-field">
+                                <input type="email" name="email" required>
+                               
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h2>Topic</h2>
+                            <p class="form-field-Theme">
+                                <input type="text" name="topic" required>
+                            </p>
+                            
+                        </div>
+                        <div class="column">
+                            <h2></h2>
+                            <p class="form-field-button">
+                              <input type="submit" value="save">
+                            </p>
+                        </div>
+                    </div> 
+                    
+                    
+                        
+                        {% if form.errors %}
+                            <ul>
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                </form> 
+        </div>
+    </section>
+    <hr>
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <p>&copy; 2023 <i>IT Student</i>  . All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+
+<html>
+<head>
+    {% load static %}
+  <title>homepage</title>
+  <!-- Add meta tag for responsive viewport scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <style>
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: calc(33.33% - 10px); /* Adjust the width to leave some space between cards */
+  margin-bottom: 20px;
+}
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+
+
+
+    /* Custom CSS to align navigation items to the right */
+    .navbar-nav {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-nav.ml-auto {
+      margin-left: auto;
+      justify-content: start;
+    }
+    #Conferences{
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+    .background-image {
+            background-image: url("./static/images/homepage.jpg");
+            height: 80vh;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        #Conferences{
+            background-color: rgb(155, 154, 154,0.5);
+        }
+        
+        </style>
+</head>
+<body>
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><strong>IT Level III ITE3162 Assignment</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto mr-5">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <p>Welcome, {{ user.username }}</p>
+                  <p>Profile Picture URL: {{ user.last_name }}</p>
+                  <p>Profile Picture URL: {{ user.profile_picture.url  }}</p>
+                  <img src="{{ user.profile_picture.url }}" alt="Profile Picture" height="10" width="10">
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a href="{% url 'login_view' %}"><i class="fab fa-github"></i> Login</a>
+            </li>
+        {% endif %}
+
+      </ul>
+    </div>
+  </nav>
+  
+  {% if user.is_authenticated %}
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav"> 
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Conferences">Conferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  {% endif %}
+  
+  
+</header>
+<div class="background-image">
+   <div class="inner-text-background">
+        <h1>Welcome Here</h1>
+        <h2>Enjoy Services</h2>
+        <h1>IT Level III, Here We Build WebApp </h1>
+    </div>
+ </div>
+
+<footer class="footer-distribute" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="footer-lef">
+            <h3>IT Level III&nbsp;&nbsp;<span> ITE3162 Assigment</span></h3>
+            <p class="footer-company-name">Our Team © 2023</p>
+            <div class="footer-icons">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="footer-righ">
+            <p>Contact~Us</p>
+            <form method="POST" action="{% url 'contactus' %}">
+              {% csrf_token %}
+              <input type="text" name="email" placeholder="Email">
+              <textarea name="message" placeholder="Message"></textarea>
+              <button type="submit">Send</button>
+              {% if form.errors %}
+                <ul>
+                  {% for field in form %}
+                    {% for error in field.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
